@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Super Secure Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        ul li a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my definitely secure website!</h1>
+    <p>In this website you can test various web vulnerabilities and how to fix them!</p>
+    <ul>
+        <li><a href="/blog">Go to the Blog page</a></li>
+        <li><a href="/register">Create an Account</a></li>
+    </ul><br>
+    <form action="/login" method="POST">
+        <label for="uname">Username</label><br>
+        <input type="text" id="uname" name="uname" required><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" id="pwd" name="pwd" required><br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

@@ -1,0 +1,4 @@
+def doSomething():
+      return "Something was done"
+doSomething()
+print("Whew Im glad i did something")

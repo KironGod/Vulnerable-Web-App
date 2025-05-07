@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #images img {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="/">Go to the Login page</a></li>
+    </ul>
+    <br>
+    <h1>Welcome to the Blog</h1>
+    <p>Here you can read our latest posts and leave your comments below.</p>
+
+    <!-- File upload form -->
+    <form action="/add_picture" method="POST" enctype="multipart/form-data">
+        <label for="file">Upload an image:</label><br>
+        <input type="file" id="file" name="file"><br><br>
+        <input type="submit" value="Upload Image">
+    </form>
+
+
+   <!-- Text input for file name -->
+<form action="/add_picture" method="POST">
+    <label for="file_name">Enter file name or command:</label><br>
+    <input type="text" id="file_name" name="file_name"><br><br>
+    <input type="submit" value="Process Image">
+</form>
+
+
+    <!-- Comment form -->
+    <form action="/add_comment" method="POST">
+        <label for="comment">Your comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Submit Comment">
+    </form>
+    <form action="/delete_comments" method="POST">
+        <input type="submit" value="Delete All Comments" onclick="return confirm('Are you sure you want to delete all comments?');">
+    </form>
+
+    <!-- Display images -->
+    <h2>Uploaded Images</h2>
+    <div id="images">
+        {% for image in images %}
+        <img src="{{ url_for('static', filename='uploads/' ~ image) }}" alt="{{ image }}" width="300">
+        <p>{{ url_for('static', filename='uploads/' ~ image) }}</p> <!-- Debug: Show image path -->
+        {% endfor %}
+    </div>
+
+    <!-- Display comments -->
+    <h2>Comments</h2>
+    <div id="comments">
+        {% for comment in comments %}
+        <p>{{ comment['comment'] | safe }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

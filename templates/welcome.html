@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <p><strong>SSN:</strong> {{ ssn }}</p>
+    <p><strong>Credit Card Number:</strong> {{ credit_card_number }}</p>
+    <p><strong>Hobbies:</strong> {{ hobbies }}</p>
+    <a href="/">Go to Home</a>
+</body>
+</html>
